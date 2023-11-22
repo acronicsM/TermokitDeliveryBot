@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "TermokitDeliveryBot"
+version = "0.1.0"
+description = "Бот для доставки Термокит"
+authors = "Mike Paramonov"
+readme = "README.md"
+packages = [{include = "rps_game"}]
+
+[tool.poetry.dependencies]
+python = "3.11"
+pytest = "^7.2.0"
+flake8 = "^6.0.0"
+black = "^22.12.0"
+aiogram = "^2.24"
+environs = "^9.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
