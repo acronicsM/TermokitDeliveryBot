@@ -3,12 +3,13 @@ from aiogram.types import BotCommand
 from aiogram.filters import Command
 
 from termokitdeliverybot.commands import driver_command as dc
-from termokitdeliverybot.filters.callbackdata import Order
-from termokitdeliverybot.handlers.order import select_order
+from termokitdeliverybot.filters.callbackdata import Order, OrderAPP
+from termokitdeliverybot.handlers.order import select_order, select_orderAPP
 
 
 def drivers_menu(dp: Dispatcher):
     dp.callback_query.register(select_order, Order.filter())
+    dp.callback_query.register(select_orderAPP, OrderAPP.filter())
 
     dp.message.register(dc.deliveries, Command(commands=['deliveries']))
     dp.message.register(dc.delivery, Command(commands=['delivery']))
