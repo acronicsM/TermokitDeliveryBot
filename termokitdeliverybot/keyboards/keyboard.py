@@ -1,42 +1,19 @@
 from aiogram.types import WebAppInfo
 from aiogram.utils.keyboard import InlineKeyboardBuilder, InlineKeyboardButton
 
-from ..filters.callbackdata import Order, OrderAPP, Item
+from ..filters.callbackdata import Order
+from ..config_data.config import config
 
 
-def order_keyboard(order_id):
+def order_keyboard(driver_id, order_id):
 
-    data = {'id':'45345',
-     't1':'rtrt'}
+    # url = f'{config.api.url}/tg/{driver_id}/orders/{order_id}/cart'
+    url = f'https://www.termokit.ru/tg/{driver_id}/orders/{order_id}/cart'
 
-    web_app = WebAppInfo(url='https://www.termokit.ru/tg/', **data)
+    web_app = WebAppInfo(url=url)
 
     builder = InlineKeyboardBuilder()
-    builder.button(text='📥 Открыть', callback_data=Order(order_id=order_id))
-    builder.button(text='📥 site', web_app=web_app)
-
-    return builder.as_markup()
-
-
-def item_keyboard(order_id, item_id):
-    builder = InlineKeyboardBuilder()
-
-    builder.button(text='➖ 1',
-                   callback_data=Item(order_id=order_id, item_id=item_id, operand='minus'),
-                   )
-
-    builder.button(text='➕ 1',
-                   callback_data=Item(order_id=order_id, item_id=item_id, operand='minus'),
-                   )
-
-    builder.button(text='❌ Убрать всё',
-                   callback_data=Item(order_id=order_id, item_id=item_id, operand='minus'),
-                   )
-
-    builder.button(text='🧮 Указать кол',
-                   callback_data=Item(order_id=order_id, item_id=item_id, operand='minus'),
-                   )
-
-    builder.adjust(2)
+    builder.button(text='🧺 Открыть', web_app=web_app)
+    builder.button(text='📥 Доставить', callback_data=Order(order_id=order_id))
 
     return builder.as_markup()

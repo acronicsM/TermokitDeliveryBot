@@ -2,7 +2,7 @@ from aiogram.filters.callback_data import CallbackData
 
 
 class Order(CallbackData, prefix='order'):
-    order_id: str
+    order_id: int
 
 
 class OrderAPP(CallbackData, prefix='orderAPP'):

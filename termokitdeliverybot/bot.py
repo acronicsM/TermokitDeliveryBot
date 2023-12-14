@@ -7,7 +7,8 @@ import logging
 
 from aiogram import Bot, Dispatcher
 
-from config_data.config import Config, load_config
+# from config_data.config import Config, load_config
+from config_data.config import config
 from handlers.user_handlers import register_user_handlers
 from keyboards.set_menu import set_drivers_menu
 
@@ -34,8 +35,7 @@ async def main():
     # Print in console about starting bot
     logger.info('Starting bot...')
 
-    # Getting all config into variable
-    config: Config = load_config(r'.env')
+    # config: Config = load_config(r'.env')
 
     # Initializing bot and dispatcher
     bot: Bot = Bot(token=config.tg_bot.token, parse_mode='MarkdownV2')
