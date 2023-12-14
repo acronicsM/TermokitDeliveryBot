@@ -4,7 +4,6 @@ from aiogram.utils.markdown import bold
 
 from ..filters.callbackdata import Order
 # from ..models.db import db
-from ..keyboards.keyboard import item_keyboard
 from .not_authorized import sign_up_answer
 
 
